@@ -1,0 +1,25 @@
+{
+  "name": "age-count",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mukiwu/age-count.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mukiwu/age-count/issues"
+  },
+  "homepage": "https://github.com/mukiwu/age-count#readme",
+  "dependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}
+
