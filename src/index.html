@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>孩子正在慢慢長大...</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        #age {
-            font-size: 2em;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>孩子正在慢慢長大...</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    #age {
+      font-size: 2em;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
-    <div id="age"></div>
+  <div id="age"></div>
 
-    <script>
-        function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                birthdate: params.get('birthdate'),
-                bgColor: params.get('bgColor'),
-                textColor: params.get('textColor')
-            };
-        }
+  <script>
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        birthdate: params.get('birthdate'),
+        bgColor: params.get('bgColor'),
+        textColor: params.get('textColor')
+      };
+    }
 
-        function calculateAge(birthdate) {
-            const now = new Date();
-            const birth = new Date(birthdate);
-            const diff = now - birth;
+    function calculateAge(birthdate) {
+      const now = new Date();
+      const birth = new Date(birthdate);
+      const diff = now - birth;
 
-            const years = Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
-            const months = Math.floor((diff % (365.25 * 24 * 60 * 60 * 1000)) / (30.44 * 24 * 60 * 60 * 1000));
-            const days = Math.floor((diff % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000));
-            const hours = Math.floor((diff % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-            const minutes = Math.floor((diff % (60 * 60 * 1000)) / (60 * 1000));
-            const seconds = Math.floor((diff % (60 * 1000)) / 1000);
+      const years = Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
+      const months = Math.floor((diff % (365.25 * 24 * 60 * 60 * 1000)) / (30.44 * 24 * 60 * 60 * 1000));
+      const days = Math.floor((diff % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000));
+      const hours = Math.floor((diff % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+      const minutes = Math.floor((diff % (60 * 60 * 1000)) / (60 * 1000));
+      const seconds = Math.floor((diff % (60 * 1000)) / 1000);
 
-            return `<p>孩子正在慢慢長大 ....</p><p>${years}年 ${months}月 ${days}日 ${hours}時 ${minutes}分 ${seconds}秒</p>`;
-        }
+      return `<p>孩子正在慢慢長大 ....</p><p>${years} 年 ${months} 月 ${days} 日 ${hours} 時 ${minutes} 分 ${seconds} 秒</p>`;
+    }
 
-        function updateAge() {
-            const { birthdate, bgColor, textColor } = getQueryParams();
-            if (birthdate) {
-                document.getElementById('age').innerHTML = calculateAge(birthdate);
-            } else {
-                document.getElementById('age').textContent = '請在網址中提供出生日期';
-            }
+    function updateAge() {
+      const { birthdate, bgColor, textColor } = getQueryParams();
+      if (birthdate) {
+        document.getElementById('age').innerHTML = calculateAge(birthdate);
+      } else {
+        document.getElementById('age').textContent = '請在網址中提供出生日期';
+      }
 
-            if (bgColor) document.body.style.backgroundColor = bgColor;
-            if (textColor) document.body.style.color = textColor;
-        }
+      if (bgColor) document.body.style.backgroundColor = bgColor;
+      if (textColor) document.body.style.color = textColor;
+    }
 
-        updateAge();
-        setInterval(updateAge, 1000);
-    </script>
+    updateAge();
+    setInterval(updateAge, 1000);
+  </script>
 </body>
+
 </html>
