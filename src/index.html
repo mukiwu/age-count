@@ -50,7 +50,7 @@
         function updateAge() {
             const { birthdate, bgColor, textColor } = getQueryParams();
             if (birthdate) {
-                document.getElementById('age').textContent = calculateAge(birthdate);
+                document.getElementById('age').innerHTML = calculateAge(birthdate);
             } else {
                 document.getElementById('age').textContent = '請在網址中提供出生日期';
             }
