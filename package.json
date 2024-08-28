@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/mukiwu/age-count#readme",
   "dependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^6.1.1"
   }
 }
-
